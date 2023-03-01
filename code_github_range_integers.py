@@ -35,6 +35,8 @@ def to_binary(number:int, nbits:int=None):
             print('Error, nbits must be larger than %d.'%(len(binary)))
         else:
             return '0' * (nbits - len(binary)) + binary
+        
+        
 
 def multi_control_z(nqubits:int):
     '''
@@ -58,34 +60,6 @@ def multi_control_z(nqubits:int):
     '''
     circuit=QuantumCircuit(nqubits,name=' CZ (%d)' %(nqubits))
     mc_gate(np.array([[1, 0], [0, -1]]), circuit=circuit, controls=list(range(nqubits-1)), targ=nqubits-1)
-    return circuit
-
-
-def multi_control_z_old(nqubits):
-    '''
-    Function to create a multi-controlled Z gate.
-
-    Input:
-        - nqubits (Integer): number of qubits in the gate (controls and target)
-        This means that the gate has nqubits-1 controls and 1 target.
-
-    Output:
-        - circuit: QuantumCircuit containing a multi-controlled Z gate.
-        It has to be transformed with method .to_gate() to append to a QuantumCircuit larger.
-
-    Example:
-
-    main_circuit = QuantumCircuit(nqubits)
-
-    gate_multi_z = multi_control_z(nqubits)
-
-    main_circuit.append(gate_multi_z.to_gate(), range(nqubits))
-    '''
-    circuit=QuantumCircuit(nqubits,name=' CZ (%d)' %(nqubits))
-    circuit.h(nqubits-1)
-    gate = MCXGate(nqubits-1)
-    circuit.append(gate, range(nqubits))
-    circuit.h(nqubits-1)
     return circuit
 
 
