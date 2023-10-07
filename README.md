@@ -6,3 +6,5 @@ The script controlled_gate.py is taken from A. J. da Silva and D. K. Park, “Li
 Next the documentation of both implementations of the oracle can be found:
 
 ![alt text](https://github.com/JSRivero/range-integers-oracle/blob/main/documentation/Documentation_implementation_A.png)
+
+![alt text](https://github.com/JSRivero/range-integers-oracle/blob/main/documentation/Documentation_implementation_B.png)
